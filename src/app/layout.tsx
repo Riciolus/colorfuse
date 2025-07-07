@@ -7,7 +7,7 @@ import { TRPCReactProvider } from "@/trpc/react";
 import Layout from "./_components/_layout/_layout";
 
 export const metadata: Metadata = {
-  title: "Colorfuse - Color Generator",
+  title: "Colorfuse - Gradient Maker",
   description:
     "Pick colors, blend gradients, and find the perfect palette for any project in seconds.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],

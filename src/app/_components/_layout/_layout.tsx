@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { Archive, Heart, PaintBucket, Search } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { type ReactNode } from "react";
@@ -41,11 +42,12 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="bg-primary text-neutral-950">
       {/* Fixed Navbar */}
-      <nav className="border-line bg-primary fixed top-0 right-0 left-0 z-50 flex h-14 items-center justify-between gap-40 border-b px-8">
-        <Link href="/">
+      <nav className="border-line-dark/50 bg-primary fixed top-0 right-0 left-0 z-50 flex h-14 items-center justify-between gap-40 border-b px-8">
+        <Link href="/" className="flex items-center">
+          <Image src={"/logo.png"} alt="sd" width={48} height={48} />
           <h3 className="flex-none text-xl font-semibold">Colorfuse</h3>
         </Link>
-        <div className="relative mr-72 h-[65%] flex-1">
+        <div className="relative h-[65%] flex-1 lg:mr-72">
           <Search className="absolute top-1/2 left-4 h-4 w-4 -translate-y-1/2 text-neutral-500" />
           <input
             type="text"
@@ -80,9 +82,11 @@ const Layout = ({ children }: LayoutProps) => {
         </aside>
 
         {/* Fixed Right Sidebar */}
-        <aside className="border-line-dark/50 fixed top-14 right-0 h-[calc(100vh-3.5rem)] w-[20rem] border-l p-3">
-          <h4 className="text-lg font-medium">{activeItem?.motto}</h4>
-          <h6 className="text-sm tracking-tight">{activeItem?.desc}</h6>
+        <aside className="border-line-dark/50 fixed top-14 right-0 hidden h-[calc(100vh-3.5rem)] border-l p-3 md:w-[20rem] lg:block">
+          <div className="grid gap-2">
+            <h4 className="text-lg font-medium">{activeItem?.motto}</h4>
+            <h6 className="text-sm tracking-tight">{activeItem?.desc}</h6>
+          </div>
         </aside>
 
         {/* Main Content */}
